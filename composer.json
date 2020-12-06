@@ -1,0 +1,18 @@
+{
+    "name": "vendor/smartycrudintec",
+    "description": "This a crud for intec test",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel Peralta",
+            "email": "peraltas1@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": { "Smarty\\src\\": "src/",
+                    "Smarty\\Core\\": "core"
+        }
+     }
+}

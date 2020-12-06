@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="21210f38-a1f5-403a-a913-cddfc4078ace" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/Smarty/composer.json</pharConfigPath>
+    <execution>
+      <interpreter composer="composer" />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1lAXg8STMnYlDqZlZmtVsvwSy7k" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp2\htdocs\SmartyCrud\core" />
+      <recent name="C:\xampp2\htdocs\SmartyCrud" />
+      <recent name="C:\xampp2\htdocs\SmartyCrud\Smarty\assets" />
+      <recent name="C:\Users\Callcenter\PhpstormProjects\SmartyCrud\Smarty" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21210f38-a1f5-403a-a913-cddfc4078ace" name="Default Changelist" comment="" />
+      <created>1607040977911</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607040977911</updated>
+      <workItem from="1607040979097" duration="713000" />
+      <workItem from="1607041987793" duration="3073000" />
+      <workItem from="1607045330235" duration="54696000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607126554215">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1607126554215" />
+    <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607130920012">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="448" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1607130920012" />
+    <state x="725" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1607053563040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="725" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1607053563040" />
+    <state x="460" y="281" key="ComposerInitDialogKey" timestamp="1607147898912">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="460" y="281" key="ComposerInitDialogKey/0.0.1366.738@0.0.1366.738" timestamp="1607147898912" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1607208029625">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607208029625" />
+    <state x="456" y="183" key="NewPhpClassDialog" timestamp="1607147700727">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="456" y="183" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1607147700727" />
+    <state x="518" y="292" key="NewPhpFileDialog" timestamp="1607046643558">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="518" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1607046643558" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1607184423821">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1607184423821" />
+    <state x="346" y="59" key="search.everywhere.popup" timestamp="1607126727471">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1607126727471" />
+  </component>
+</project>
