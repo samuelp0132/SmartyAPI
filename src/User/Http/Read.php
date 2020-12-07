@@ -49,6 +49,8 @@ if($rowCounts > 0){
 
         $users_list = array(
             "id" => $id,
+            "usuario" => $usuario,
+            "contrasena" => $contrasena,
             "nombre" => $nombre,
             "apellido" => $apellido,
             "email" => $email,

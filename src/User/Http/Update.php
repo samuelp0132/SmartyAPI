@@ -6,11 +6,6 @@ require_once "../../../core/Config.php";
 require_once "../../../core/Validation.php";
 require_once "../User.php";
 
-/* adding the necessary files
-use Smarty\core\Config;
-use Smarty\core\Database;
-use Smarty\User\User;
-*/
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -32,32 +27,30 @@ if(!isset($data->id)) {
     exit;
    }
 
-    $user->_id = $data->id;
+    $user->id = $data->id;
     $userData = $user->read_by_id();
 
-    //CHECK WHETHER THERE IS ANY POST IN OUR DATABASE
-    if($userData->rowCount() > 0) {
 
-        // FETCH POST FROM DATBASE
+    if($userData->rowCount() > 0) {
         $row = $userData->fetch(PDO::FETCH_ASSOC);
 
-
         // passing data to the user model
-        $user->_id = isset($data->id) ?  $data->id : $row['id'];
-        $user->_nombre= isset($data->nombre) ? $data->nombre  : $row['nombre'];
-        $user->_apellido = isset($data->apellido) ? $data->apellido : $row['apellido'];
-        $user->_email = isset($data->email) ? $data->email : $row['email'];
-        $user->_telefono = isset($data->telefono) ? $data->telefono : $row['telefono'];
+        $user->id = isset($data->id) ?  $data->id : $row['id'];
+        $user->usuario = isset($data->usuario) ? $data->usuario  : $row['usuario'];
+        $user->contrasena = isset($data->contrasena) ? $data->contrasena  : $row['contrasena'];
+        $user->nombre = isset($data->nombre) ? $data->nombre  : $row['nombre'];
+        $user->apellido = isset($data->apellido) ? $data->apellido : $row['apellido'];
+        $user->email = isset($data->email) ? $data->email : $row['email'];
+        $user->telefono = isset($data->telefono) ? $data->telefono : $row['telefono'];
 
     }
-    // if the user was deleted
-    if($user->update()){
-        echo json_encode(array('message' => 'Post Update.'));
+    // if the user was updated
+    if($user->update() == TRUE){
+        echo json_encode(array('message' => 'User Update.'));
 
     }
-
     else{
-        echo json_encode(array('message' => 'Post Not Update.'));
+        echo json_encode(array('message' => 'User Not Update.'));
     }
 
 

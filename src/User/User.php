@@ -1,28 +1,33 @@
 <?php
+    // including the necessary files
+    require "../../../vendor/autoload.php";
+    require "../../../core/Sanatize.php";
 
-// including the necessary files
-require "../../../vendor/autoload.php";
-require "../../../core/Sanatize.php";
+    use User\Contracts\ICrudUsers;
+    use Smarty\Core\Sanatize;
 
-use User\Contracts\ICrudUsers;
-use Smarty\Core\Sanatize;
+    class User implements ICrudUsers{
 
 
+    private $_dbtable = "smartyapi.users";
 
-
-class User implements ICrudUsers{
-
-    // db properties
-
-    private $_dbtable = "smartycrud.users";
-
-    // properties Contact object
+    // properties Users object
 
     /**
      * id number contact
      * @var [int]
      */
     public $id;
+
+    /**
+    * @var
+    */
+    public $usuario;
+
+    /**
+    * @var
+    */
+    public $contrasena;
 
     /**
      * contact name
@@ -56,10 +61,7 @@ class User implements ICrudUsers{
      * holds query to execute
      * @var [string]
      */
-
     public $query;
-
-    // construct Contact object
 
 
     /**
@@ -84,22 +86,28 @@ class User implements ICrudUsers{
 
         try {
             //mysql_real_escape_string($clean)
-            $this->_query = "INSERT INTO ". $this->_dbtable ." SET nombre = :nombre, apellido = :apellido, email = :email, telefono = :telefono";
+            $this->_query = "INSERT INTO ". $this->_dbtable ." SET usuario = :usuario,contrasena = :contrasena,nombre = :nombre, apellido = :apellido, email = :email, telefono = :telefono";
 
             // preparing statement
             $statement = $this->_conn->prepare($this->_query);
 
             // sanitizing parameters
-            $this->_nombre = Sanatize::xss_cleaner($this->_nombre);
-            $this->_apellido = Sanatize::xss_cleaner($this->_apellido);
-            $this->_email = Sanatize::xss_cleaner($this->_email);
-            $this->_telefono = Sanatize::xss_cleaner($this->_telefono);
+
+            $this->usuario = Sanatize::xss_cleaner($this->usuario);
+            $this->contrasena = Sanatize::xss_cleaner($this->contrasena);
+            $this->nombre = Sanatize::xss_cleaner($this->nombre);
+            $this->apellido = Sanatize::xss_cleaner($this->apellido);
+            $this->email = Sanatize::xss_cleaner($this->email);
+            $this->telefono = Sanatize::xss_cleaner($this->telefono);
 
             // binding params
-            $statement->bindParam(':nombre', $this->_nombre);
-            $statement->bindParam(':apellido' ,$this->_apellido);
-            $statement->bindParam(':email', $this->_email);
-            $statement->bindParam(':telefono', $this->_telefono);
+
+            $statement->bindParam(':usuario', $this->usuario);
+            $statement->bindParam(':contrasena', $this->contrasena);
+            $statement->bindParam(':nombre', $this->nombre);
+            $statement->bindParam(':apellido' ,$this->apellido);
+            $statement->bindParam(':email', $this->email);
+            $statement->bindParam(':telefono', $this->telefono);
 
             // executing statement
             if($statement->execute()){
@@ -164,16 +172,19 @@ class User implements ICrudUsers{
     public function update(){
         try {
             // update user query
-            $this->_query = "UPDATE " . $this->_dbtable . " SET nombre = :nombre, apellido = :apellido, email = :email, telefono = :telefono";
+            $this->_query = "UPDATE " . $this->_dbtable . " SET usuario = :usuario, contrasena = :contrasena, nombre = :nombre, apellido = :apellido, email = :email, telefono = :telefono WHERE id=:id";
 
             //preparing statement
             $statement = $this->_conn->prepare($this->_query);
 
             // binding params
-            $statement->bindParam(':nombre', $this->_nombre, PDO::PARAM_INT);
-            $statement->bindParam(':apellido', $this->_apellido, PDO::PARAM_INT);
-            $statement->bindParam(':email', $this->_email, PDO::PARAM_INT);
-            $statement->bindParam(':telefono', $this->_telefono, PDO::PARAM_INT);
+            $statement->bindParam(':id', $this->id, PDO::PARAM_STR);
+            $statement->bindParam(':usuario', $this->usuario, PDO::PARAM_STR);
+            $statement->bindParam(':contrasena', $this->contrasena, PDO::PARAM_STR);
+            $statement->bindParam(':nombre', $this->nombre, PDO::PARAM_STR);
+            $statement->bindParam(':apellido', $this->apellido, PDO::PARAM_STR);
+            $statement->bindParam(':email', $this->email, PDO::PARAM_STR);
+            $statement->bindParam(':telefono', $this->telefono, PDO::PARAM_STR);
 
             // executing statement
             $statement->execute();
@@ -228,7 +239,7 @@ class User implements ICrudUsers{
 
     public function read_by_id(){
         try {
-            $userid = $this->_id;
+            $userid = $this->id;
 
             // query to get specific users
             $this->_query = "SELECT * FROM " . $this->_dbtable . " WHERE id=:userid";

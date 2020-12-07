@@ -1,15 +1,9 @@
 <?php
-
-require_once "../../../core/Database.php";
-
-require_once "../../../core/Config.php";
-
-
-require_once "../../../core/Validation.php";
-
-require_once "../User.php";
-
     // adding the necessary files
+    require_once "../../../core/Database.php";
+    require_once "../../../core/Config.php";
+    require_once "../../../core/Validation.php";
+    require_once "../User.php";
 
     // necessary headers
 
@@ -24,28 +18,33 @@ require_once "../User.php";
     $db = new Database(new Config('users'));
     $dbconnect = $db->connect();
 
-    // user instance
+
     $user = new User($dbconnect);
 
     //Receiving data
     $data = json_decode(file_get_contents('php://input'));
 
     //Passing data to the user model
-    $user->_nombre = $data->nombre;
-    $user->_apellido = $data->apellido;
-    $user->_email = $data->email;
-    $user->_telefono = $data->telefono;
+
+    $user->usuario = $data->usuario;
+    $user->contrasena = $data->contrasena;
+    $user->nombre = $data->nombre;
+    $user->apellido = $data->apellido;
+    $user->email= $data->email;
+    $user->telefono = $data->telefono;
 
     // validating parameters
-    Validation::validateParameter("nombre",$user->_nombre,STRING,TRUE);
-    Validation::validateParameter("apellido",$user->_apellido,STRING,TRUE);
-    Validation::validateParameter("telefono",$user->_telefono,STRING,TRUE);
-    Validation::validateParameter("email",$user->_email,STRING,TRUE);
+
+    Validation::validateParameter("usuario",$user->usuario,STRING,TRUE);
+    Validation::validateParameter("contrasena",$user->contrasena,STRING,TRUE);
+    Validation::validateParameter("nombre",$user->nombre,STRING,TRUE);
+    Validation::validateParameter("apellido",$user->apellido,STRING,TRUE);
+    Validation::validateParameter("telefono",$user->telefono,STRING,TRUE);
+    Validation::validateParameter("email",$user->email,STRING,TRUE);
 
 
-    //if user has been created
     if($user->create()){
-    echo json_encode(array('message' => 'User succesfully created!'));
+        echo json_encode(array('message' => 'User succesfully created!'));
     }else{
         echo json_encode(array('message' => 'User couldnt be created!'));
     }
